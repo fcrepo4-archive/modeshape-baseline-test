@@ -1,0 +1,33 @@
+{
+    "name" : "repo",
+    "workspaces" : {
+        "predefined" : ["default"],
+        "default" : "default",
+        "allowCreation" : true
+    },
+    "query" : {
+        "enabled" : true,
+        "rebuildUponStartup" : "if_missing",
+        "indexStorage" : {
+            "type" : "filesystem",
+            "location" : "indexes",
+            "lockingStrategy" : "native",
+            "fileSystemAccessType" : "auto"
+        }
+    },
+    "storage" : {
+        "cacheName" : "infini-cache",
+        "cacheConfiguration" : "infinispan-config1.xml",
+        "binaryStorage" : {
+            "type" : "cache",
+            "dataCacheName" : "modeshape-cache",
+            "metadataCacheName" : "modeshape-md-cache"
+        }
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        }
+    }
+}
